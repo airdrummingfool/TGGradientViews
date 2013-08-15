@@ -1,25 +1,25 @@
 //
-//  LinearGradientView.m
+//  TGLinearGradientView.m
 //
 //  Created by Thomas Goode on 7/26/12.
 //
 
-#import "LinearGradientView.h"
+#import "TGLinearGradientView.h"
 
-@interface LinearGradientView ()
+@interface TGLinearGradientView ()
 
 - (void)drawGradient;
 
 @end
 
-@implementation LinearGradientView
+@implementation TGLinearGradientView
 
 @synthesize firstColor = _firstColor;
 @synthesize secondColor = _secondColor;
 @synthesize isHorizontal = _isHorizontal;
 
 + (UIView *)linearGradientViewForView:(UIView *)view {
-	return [[LinearGradientView alloc] initWithFrame:view.bounds];
+	return [[TGLinearGradientView alloc] initWithFrame:view.bounds];
 }
 
 - (id)initWithFrame:(CGRect)frame {

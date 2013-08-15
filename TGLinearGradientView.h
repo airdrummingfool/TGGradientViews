@@ -1,5 +1,5 @@
 //
-//  LinearGradientView.h
+//  TGLinearGradientView.h
 //
 //  Created by Thomas Goode on 7/26/12.
 //
@@ -7,7 +7,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface LinearGradientView : UIView
+@interface TGLinearGradientView : UIView
 
 // Note: colors must be in the RGB color space to display.
 @property (nonatomic, strong) UIColor *firstColor;

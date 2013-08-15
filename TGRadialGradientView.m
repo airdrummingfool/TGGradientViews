@@ -1,12 +1,12 @@
 //
-//  RadialGradientView.m
+//  TGRadialGradientView.m
 //
 //  Created by Thomas Goode on 7/21/12.
 //
 
-#import "RadialGradientView.h"
+#import "TGRadialGradientView.h"
 
-@interface RadialGradientView ()
+@interface TGRadialGradientView ()
 
 @property (nonatomic) CGGradientRef gradient;
 
@@ -14,14 +14,14 @@
 
 @end
 
-@implementation RadialGradientView
+@implementation TGRadialGradientView
 
 @synthesize gradient = _gradient;
 @synthesize innerColor = _innerColor;
 @synthesize outerColor = _outerColor;
 
 + (UIView *)radialGradientViewForView:(UIView *)view {
-	return [[RadialGradientView alloc] initWithFrame:view.bounds];
+	return [[TGRadialGradientView alloc] initWithFrame:view.bounds];
 }
 
 - (void)drawRect:(CGRect)rect {

@@ -1,5 +1,5 @@
 //
-//  RadialGradientView.h
+//  TGRadialGradientView.h
 //
 //  Created by Thomas Goode on 7/21/12.
 //
@@ -7,7 +7,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface RadialGradientView : UIView
+@interface TGRadialGradientView : UIView
 
 // Note: colors must be in the RGB color space to display.
 @property (nonatomic, strong) UIColor *innerColor;
