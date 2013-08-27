@@ -22,30 +22,7 @@
 	return [[TGLinearGradientView alloc] initWithFrame:view.bounds];
 }
 
-- (id)initWithFrame:(CGRect)frame {
-	if (self = [super initWithFrame:frame]) {
-		self.isHorizontal = NO;
-		[self setupGradientLayer];
-	}
-	return self;
-}
-
-+ (Class)layerClass {
-	return [CAGradientLayer class];
-}
-
-- (void)setupGradientLayer {
-	self.layer.bounds = [self bounds];
-	self.layer.masksToBounds = YES;
-	self.layer.position = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
-	[self drawGradient];
-}
-
-- (void)drawGradient {
-	[(CAGradientLayer *)self.layer setColors:[NSArray arrayWithObjects:(id)[self.firstColor CGColor], (id)[self.secondColor CGColor], nil]];
-}
-
-#pragma mark Custom getters/setters
+#pragma mark - Custom getters/setters
 - (UIColor *)firstColor {
 	if (!_firstColor) {
 		return [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
@@ -81,6 +58,31 @@
 		[(CAGradientLayer *)self.layer setEndPoint:CGPointMake(0.5, 1.0)];
 	}
 	[self drawGradient];
+}
+
+#pragma mark - Lifecycle
+- (id)initWithFrame:(CGRect)frame {
+	if (self = [super initWithFrame:frame]) {
+		self.isHorizontal = NO;
+		[self setupGradientLayer];
+	}
+	return self;
+}
+
+#pragma mark - Gradient setup/drawing
++ (Class)layerClass {
+	return [CAGradientLayer class];
+}
+
+- (void)setupGradientLayer {
+	self.layer.bounds = [self bounds];
+	self.layer.masksToBounds = YES;
+	self.layer.position = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+	[self drawGradient];
+}
+
+- (void)drawGradient {
+	[(CAGradientLayer *)self.layer setColors:[NSArray arrayWithObjects:(id)[self.firstColor CGColor], (id)[self.secondColor CGColor], nil]];
 }
 
 @end

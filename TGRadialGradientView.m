@@ -16,7 +16,6 @@
 
 @implementation TGRadialGradientView
 
-@synthesize gradient = _gradient;
 @synthesize innerColor = _innerColor;
 @synthesize outerColor = _outerColor;
 
@@ -24,21 +23,7 @@
 	return [[TGRadialGradientView alloc] initWithFrame:view.bounds];
 }
 
-- (void)drawRect:(CGRect)rect {
-    CGContextRef currentContext = UIGraphicsGetCurrentContext();
-
-    CGPoint center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-
-    CGContextDrawRadialGradient(currentContext, self.gradient, center, 0, center, 300, 3);
-}
-
-- (void)redrawGradient {
-	// invalidate the gradient layer so it is regenerated
-	self.gradient = nil;
-	[self setNeedsDisplay];
-}
-
-#pragma mark Custom getters/setters
+#pragma mark - Custom getters/setters
 - (CGGradientRef)gradient {
 	if (!_gradient) {
 		CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -74,6 +59,21 @@
 - (void)setOuterColor:(UIColor *)outerColor {
 	_outerColor = outerColor;
 	[self redrawGradient];
+}
+
+#pragma mark - Drawing
+- (void)drawRect:(CGRect)rect {
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+
+    CGPoint center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+
+    CGContextDrawRadialGradient(currentContext, self.gradient, center, 0, center, 300, 3);
+}
+
+- (void)redrawGradient {
+	// invalidate the gradient layer so it is regenerated
+	self.gradient = nil;
+	[self setNeedsDisplay];
 }
 
 @end
